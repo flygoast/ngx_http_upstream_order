@@ -187,7 +187,6 @@ static ngx_int_t
 ngx_http_upstream_init_order_peer(ngx_http_request_t *r,
     ngx_http_upstream_srv_conf_t *us)
 {
-    ngx_uint_t                            n;
     ngx_http_upstream_order_peer_data_t  *op;
 
     op = r->upstream->peer.data;
@@ -203,8 +202,6 @@ ngx_http_upstream_init_order_peer(ngx_http_request_t *r,
 
     op->peers = us->peer.data;
     op->index = 0;
-
-    n = op->peers->number;
 
     r->upstream->peer.free = ngx_http_upstream_free_order_peer;
     r->upstream->peer.get = ngx_http_upstream_get_order_peer;
